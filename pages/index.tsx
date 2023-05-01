@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import ProductList from '@/components/ProductList/ProductList'
 import ImageSection from '@/components/ImageSection/ImageSection'
 import { Product } from '@/types/Product'
+import PList from '@/components/PList'
 const inter = Inter({ subsets: ['latin'] })
 
 interface Props {
@@ -24,6 +25,7 @@ export default function Home({ products }: Props) {
    <h1 className='text-4xl font-bold text-center mt-8'>Gym Clothing</h1>
    <ImageSection images={images} />
    <ProductList products={products} />
+   <PList/>
    </>
   )
 }
