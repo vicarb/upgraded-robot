@@ -26,7 +26,7 @@ export default function Home({ products }: Props) {
    <h1 className='text-4xl font-bold text-center mt-8'>AIRON Gym Clothing</h1>
    <ImageSection images={images} />
    <ProductList products={products} />
-   <PList/>
+   
    </>
   )
 }
