@@ -22,15 +22,18 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         <span className="font-semibold text-xl tracking-tight">Gym Clothing</span>
       </Link>
     </div>
-    <div className="flex items-center lg:hidden mr-4" onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}>
-      <FaShoppingCart size={20} className="text-white flex-1 cursor-pointer" />
-      {cartItemCount > 0 && (
-        <span className="bg-white text-pink-500 font-bold py-1 px-2 rounded-full ml-2">
-          {cartItemCount}
-        </span>
-      )}
-    </div>
-    <div className="block lg:hidden">
+    <div className="flex items-center lg:hidden mr-4">
+      <div
+        className="flex items-center mr-4"
+        onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}
+      >
+        <FaShoppingCart size={20} className="text-white flex-1 cursor-pointer" />
+        {cartItemCount > 0 && (
+          <span className="bg-white text-pink-500 font-bold py-1 px-2 rounded-full ml-2">
+            {cartItemCount}
+          </span>
+        )}
+      </div>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
@@ -45,7 +48,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         </svg>
       </button>
     </div>
-    <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? 'block' : 'hidden'}`}>
+    <div
+      className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+        isOpen ? 'block' : 'hidden'
+      }`}
+    >
       <div className="text-sm lg:flex-grow lg:text-right">
         <a
           href="#responsive-header"
@@ -67,11 +74,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         </a>
       </div>
       <div className="hidden lg:block">
-        <div className="flex items-center" onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}>
-          <FaShoppingCart
-            size={20}
-            className="text-white flex-1 cursor-pointer"
-          />
+        <div
+          className="flex items-center"
+          onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}
+        >
+          <FaShoppingCart size={20} className="text-white flex-1 cursor-pointer" />
           {cartItemCount > 0 && (
             <span className="bg-white text-pink-500 font-bold py-1 px-2 rounded-full ml-2">
               {cartItemCount}
