@@ -23,19 +23,26 @@ const images = [
 ];
 
 export default function Home({ products }: Props) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isImageSectionLoaded, setIsImageSectionLoaded] = useState(false);
+  const [isProductListLoaded, setIsProductListLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    setIsImageSectionLoaded(true);
+    setTimeout(() => {
+      setIsProductListLoaded(true);
+    }, 100); // Adjust this value for the desired delay between the two components
   }, []);
+
   return (
     <>
-      <div className={`transition-opacity duration-500 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`transition-opacity duration-500 ease-in-out ${isImageSectionLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <ImageSection images={images} />
+      </div>
+      <div className={`transition-opacity duration-500 ease-in-out ${isProductListLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <ProductList products={products} />
       </div>
     </>
-  )
+  );
 }
 
 // Fetch data at build time
