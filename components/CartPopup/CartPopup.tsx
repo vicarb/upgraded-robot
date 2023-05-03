@@ -29,13 +29,11 @@ export const CartPopup: React.FC<{ onClose: () => void }> = memo(({ onClose }) =
       )}
       {/* Button to go to the cart */}
       <Link href="/cart">
-        <span className="bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 text-white px-4 py-2 rounded-md font-semibold">
+        <span onClick={onClose} className="bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 text-white px-4 py-2 rounded-md font-semibold cursor-pointer">
           Go to Cart
         </span>
       </Link>
     </div>
   </div>
   );
-  
-  
 });
