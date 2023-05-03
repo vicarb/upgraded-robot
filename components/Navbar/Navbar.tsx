@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
@@ -11,12 +11,32 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = useCart();
   const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const isScrollingUp = scrollPosition > currentScrollPosition;
+  
+    setShowNavbar(isScrollingUp);
+    setScrollPosition(currentScrollPosition);
+  };
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollPosition]);
+
 
   const cartItemCount = cartItems.length;
 
   return (
     <>
-    <nav className="fixed top-0 w-full flex items-center justify-between flex-wrap bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 p-6 z-50 custom-navbar">
+    <nav
+  className={`fixed top-0 w-full flex items-center justify-between flex-wrap bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 p-6 z-50 custom-navbar transition-transform duration-300 ${
+    showNavbar ? '' : '-translate-y-full'
+  }`}
+>
     <div className="flex items-center flex-shrink-0 text-white mr-6">
       <Link href="/">
         <span className="font-semibold text-xl tracking-tight">Gym Clothing</span>
