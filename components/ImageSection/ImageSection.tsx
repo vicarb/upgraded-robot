@@ -6,7 +6,7 @@ interface ImageSectionProps {
 
 const ImageSection: React.FC<ImageSectionProps> = ({ images }) => {
   return (
-    <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500">
+    <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 z-10">
       <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((image, index) => (

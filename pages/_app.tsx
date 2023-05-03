@@ -8,9 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
     <CartProvider>
+
     <Navbar/>
     <Component {...pageProps} />
     <Footer/>
+
     </CartProvider>
     </>
     )
