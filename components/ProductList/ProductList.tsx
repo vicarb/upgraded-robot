@@ -15,8 +15,9 @@ const ProductList = ({ products }: Props) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 text-white">
+    <div className="min-h-fit bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 text-white">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-4xl font-bold mb-8 text-center">Our Products</h2>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
