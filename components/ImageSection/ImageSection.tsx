@@ -6,13 +6,15 @@ interface ImageSectionProps {
 
 const ImageSection: React.FC<ImageSectionProps> = ({ images }) => {
   return (
-    <div className="container mx-auto py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {images.map((image, index) => (
-          <div key={index} className="h-64 md:h-full relative">
-            <img src={image} alt="" className="h-full w-full object-cover rounded-md" />
-          </div>
-        ))}
+    <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500">
+      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {images.map((image, index) => (
+            <div key={index} className="h-64 md:h-full relative rounded-md overflow-hidden shadow-lg">
+              <img src={image} alt="" className="h-full w-full object-cover rounded-md transform transition-all hover:scale-110" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
