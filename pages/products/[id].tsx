@@ -1,8 +1,10 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Product } from '@/types/Product';
+import { useCart } from '@/context/CartContext';
+
+import { CartContext } from '@/context/CartContext';
 
 interface Props {
   product: Product;
@@ -10,15 +12,10 @@ interface Props {
 
 const ProductDetail: React.FC<Props> = ({ product }) => {
   const router = useRouter();
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const { cartItems, addToCart } = useCart();
 
-  const addToCart = () => {
-    setCartItems([...cartItems, product]);
-    console.log(cartItems);
-    
-  };
+  console.log(cartItems);
   
-
   const cartTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
@@ -35,9 +32,13 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
             <p className="text-lg mb-6">{product.description}</p>
             <div className="flex items-center">
               <span className="text-3xl font-bold">${product.price.toFixed(2)}</span>
-              <button className="px-4 py-2 ml-6 bg-white text-gray-800 text-sm font-semibold rounded-md shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" onClick={addToCart}>
-                Add to Cart
-              </button>
+              <button
+  className="px-4 py-2 ml-6 bg-white text-gray-800 text-sm font-semibold rounded-md shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
+  onClick={() => addToCart(product)}
+>
+  Add to Cart
+</button>
+
             </div>
           </div>
         </div>
@@ -61,17 +62,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    if (!params) {
-        return {
-          notFound: true,
-        };
-      }
-    
-    const { id } = params;
-    const response = await fetch(`https://singular-marzipan-df9366.netlify.app/api/products/${id}`);
-    const product = await response.json();
-    console.log("prod", product);
-    
-    return { props: { product } };
-  };
-  
+  if (!params) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const { id } = params;
+  const response = await fetch(`https://singular-marzipan-df9366.netlify.app/api/products/${id}`);
+  const product = await response.json();
+
+  return { props: { product } };
+};

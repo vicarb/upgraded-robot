@@ -6,6 +6,7 @@ import { Product } from '@/types/Product'
 import PList from '@/components/PList'
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 const inter = Inter({ subsets: ['latin'] })
+import Cart from '@/components/Cart/Cart'
 
 interface Props {
   products: Product[];
@@ -26,7 +27,7 @@ export default function Home({ products }: Props) {
    
    <ImageSection images={images} />
    <ProductList products={products} />
-   
+   <Cart/>
    </>
   )
 }
