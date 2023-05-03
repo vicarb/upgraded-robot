@@ -6,6 +6,7 @@ import { Product } from '@/types/Product'
 import PList from '@/components/PList'
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 const inter = Inter({ subsets: ['latin'] })
+import { useState, useEffect } from 'react'
 
 
 interface Props {
@@ -22,12 +23,18 @@ const images = [
 ];
 
 export default function Home({ products }: Props) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
   return (
-   <>
-   
-   <ImageSection images={images} />
-   <ProductList products={products} />
-   </>
+    <>
+      <div className={`transition-opacity duration-500 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <ImageSection images={images} />
+        <ProductList products={products} />
+      </div>
+    </>
   )
 }
 
