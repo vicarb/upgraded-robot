@@ -15,7 +15,7 @@ export const CartContext = createContext<CartContextProps>({
 
 export const useCart = () => useContext(CartContext);
 
-const CartProvider: React.FC = ({ children }) => {
+const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Product } from '@/types/Product';
 import { useCart } from '@/context/CartContext';
+import { GetStaticProps, GetStaticPaths } from 'next';
+
 
 import { CartContext } from '@/context/CartContext';
 
