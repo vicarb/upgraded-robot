@@ -24,3 +24,12 @@ body {
     #F97316  /* orange-500 */
   );
 }
+
+.custom-navbar {
+  background-image: linear-gradient(
+    to top right,
+    #EC4899, /* pink-500 */
+    #EF4444, /* red-500 */
+    #F97316  /* orange-500 */
+  );
+}

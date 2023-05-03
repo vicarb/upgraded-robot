@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   return (
     <>
-    <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 p-6 z-50">
+    <nav className="flex items-center justify-between flex-wrap bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 p-6 z-50 custom-navbar">
     <div className="flex items-center flex-shrink-0 text-white mr-6">
       <Link href="/">
         <span className="font-semibold text-xl tracking-tight">Gym Clothing</span>
