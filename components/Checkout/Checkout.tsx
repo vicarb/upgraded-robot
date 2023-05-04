@@ -30,9 +30,12 @@ const Checkout = () => {
   const calculateTotal = (items: Product[]) => {
     const total = cartItems.reduce((acc, item) => {
       const price = item.price; // remove the $ symbol and convert to a float
+      console.log(`roce`, price);
+      
       return acc + price * item.quantity;
     }, 0);
-    return total.toFixed(2);
+    console.log(`total!`, Math.round(total));
+    return Math.round(total);
   };
 
   const totalPrice = cartItems.reduce(
