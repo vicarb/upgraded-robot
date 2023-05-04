@@ -1,4 +1,5 @@
 import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 const Cart = () => {
   const { cartItems, clearCart } = useCart();
@@ -16,6 +17,9 @@ const Cart = () => {
           </div>
         ))}
         <button className="bg-gray-800 text-white px-4 py-2 rounded-md font-semibold" onClick={clearCart}>Clear cart</button>
+        <Link href="/checkout">
+          <span className="bg-gray-800 text-white px-4 py-2 rounded-md font-semibold ml-4">Checkout</span>
+        </Link>
       </div>
     </div>
   );
