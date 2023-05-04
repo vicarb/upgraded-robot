@@ -16,9 +16,9 @@ const Cart = () => {
             <p className="text-lg font-bold mb-2">Quantity: {item.quantity}</p>
           </div>
         ))}
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-md font-semibold" onClick={clearCart}>Clear cart</button>
+        <button className="bg-white text-black px-4 py-2 rounded-md font-semibold" onClick={clearCart}>Clear cart</button>
         <Link href="/checkout">
-          <span className="bg-gray-800 text-white px-4 py-2 rounded-md font-semibold ml-4">Checkout</span>
+          <span className="bg-white text-black px-4 py-2 rounded-md font-semibold ml-4">Checkout</span>
         </Link>
       </div>
     </div>
