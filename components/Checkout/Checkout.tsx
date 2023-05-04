@@ -180,12 +180,8 @@ const Checkout = () => {
         <h2 className="font-bold text-lg mb-2">Order Summary</h2>
         {cartItems.map((item) => (
           <div key={item.id} className="flex justify-between border-t pt-2 mt-2">
-            <p className="text-gray-500 font-semibold text-white">{item.name} x {item.quantity} </p>
-            <p className="text-gray-500 text-white font-semibold">${item.price}  </p>
-
-
-
-            
+            <p className="text-gray-800 font-semibold text-black">{item.name} x {item.quantity} </p>
+            <p className="text-gray-800  font-semibold">${item.price}  </p>            
           </div>
         ))}
         <div className="flex justify-between border-t pt-2 mt-2">
@@ -205,6 +201,7 @@ const Checkout = () => {
         </button>
       </div>
     </div>
+    
     
 
 </div>

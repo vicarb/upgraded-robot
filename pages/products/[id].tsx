@@ -43,7 +43,10 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
           <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
           <p className="text-lg mb-6">{product.description}</p>
           <div className="flex items-center">
-            <span className="text-3xl font-bold">${product.price.toFixed(2)}</span>
+          <span className="text-3xl font-bold">
+  ${product.price.toLocaleString('en-US', { minimumFractionDigits: 3 }).replace(',', '.').slice(0, -4)}
+</span>
+
             <button
               className="px-4 py-2 ml-6 bg-white text-gray-800 text-sm font-semibold rounded-md shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
               onClick={() => addToCart(product)}

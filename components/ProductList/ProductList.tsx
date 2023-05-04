@@ -31,7 +31,8 @@ const ProductList = ({ products }: Props) => {
                   <img src={product.image} alt={product.name} className="h-full w-full object-cover rounded-t-md" />
                 </Link>
                 <div className="absolute bottom-0 right-0 mr-4 mb-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-2 py-1 rounded-md">
-                  ${product.price.toFixed(2)}
+                ${product.price.toLocaleString('en-US', { minimumFractionDigits: 3 }).replace(',', '.').slice(0, -4)}
+                  
                 </div>
                 <Link href={`/products/${product._id}`}>
                   <span className={`absolute bottom-0 right-0 mr-4 mb-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-4 py-2 rounded-md transition-opacity duration-300 ${hoveredProductId === product.id ? 'opacity-100' : 'opacity-0'}`}>
