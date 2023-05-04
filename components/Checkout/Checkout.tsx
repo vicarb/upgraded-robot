@@ -52,7 +52,7 @@ const Checkout = () => {
         total: calculateTotal(cartItems),
         sessionId: Math.floor(Math.random() * 1000000000).toString(),
         buyOrder: Math.floor(Math.random() * 1000000000).toString(),
-        returnUrl: 'https://vicarb.github.io/super-memory/success',
+        returnUrl: 'https://vicarb.github.io/upgraded-robot/success',
       });
       console.log("this is response", response.data);
       const url = response.data.url;
