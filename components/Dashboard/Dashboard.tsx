@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 
 // Dummy data for the example
@@ -10,19 +10,43 @@ const data = [
 
 const Dashboard = () => {
   const chartRef = useRef(null);
+  
+  const [chartSize, setChartSize] = useState({ width: 960, height: 500 });
 
   useEffect(() => {
-    const svg = d3.select(chartRef.current);
+    const updateChartSize = () => {
+      if (window.innerWidth < 640) { // Adjust the breakpoint based on your needs
+        setChartSize({ width: window.innerWidth - 40, height: 500 });
+      } else {
+        setChartSize({ width: 960, height: 500 });
+      }
+    };
 
+    window.addEventListener('resize', updateChartSize);
+    updateChartSize();
+
+    return () => {
+      window.removeEventListener('resize', updateChartSize);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    
+    const svg = d3.select(chartRef.current);
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-    const width = +svg.attr('width') - margin.left - margin.right;
-    const height = +svg.attr('height') - margin.top - margin.bottom;
+    const width = chartSize.width - margin.left - margin.right;
+    const height = chartSize.height - margin.top - margin.bottom;
+
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+    const padding = 40
 
     const x = d3.scaleBand()
-      .rangeRound([0, width])
+      .rangeRound([padding, width])
       .padding(0.2)
       .domain(data.map(d => d.label));
+
+    
 
     const y = d3.scaleLinear()
       .rangeRound([height, 0])
@@ -54,14 +78,18 @@ const Dashboard = () => {
       .attr('rx', 4) // Round the edges on the x-axis
       .attr('ry', 4); // Round the edges on the y-axis
 
-
-  }, []);
+      return () => {
+        svg.selectAll('*').remove();
+      };
+  }, [chartSize]);
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4 text-white mt-16">Dashboard</h1>
-      <svg ref={chartRef} width="960" height="500"></svg>
+    <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+    <div className="w-full h-full">
+      <svg ref={chartRef} preserveAspectRatio="xMinYMin meet" viewBox={`0 0 ${chartSize.width} ${chartSize.height}`}></svg>
     </div>
+  </div>
   );
 };
 
