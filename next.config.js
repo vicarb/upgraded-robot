@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['hmchile.vtexassets.com', 'img.ltwebstatic.com', 'cdn.shopify.com'],
+    domains: ['hmchile.vtexassets.com', 'img.ltwebstatic.com', 'cdn.shopify.com', 'via.placeholder.com'],
   },
 }
 
