@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
+// Dummy data for the example
 const data = [
-  { label: 'Apples', value: 10 },
-  { label: 'Oranges', value: 20 },
-  { label: 'Bananas', value: 15 },
-  { label: 'Grapes', value: 5 },
+  { label: 'A', value: 10 },
+  { label: 'B', value: 20 },
+  { label: 'C', value: 30 },
 ];
 
 const Dashboard = () => {
@@ -21,13 +21,12 @@ const Dashboard = () => {
 
     const x = d3.scaleBand()
       .rangeRound([0, width])
-      .padding(0.1)
+      .padding(0.2)
       .domain(data.map(d => d.label));
 
-      const y = d3.scaleLinear()
+    const y = d3.scaleLinear()
       .rangeRound([height, 0])
       .domain([0, d3.max(data, d => d.value) ?? 0]);
-    
 
     g.append('g')
       .attr('transform', `translate(0,${height})`)
@@ -39,10 +38,6 @@ const Dashboard = () => {
       .attr('fill', '#000')
       .attr('x', 2)
       .attr('y', y(y.ticks().pop() ?? 0) + 0.5)
-
-
-
-
       .attr('dy', '0.32em')
       .attr('text-anchor', 'start')
       .text('Value');
@@ -51,17 +46,20 @@ const Dashboard = () => {
       .data(data)
       .enter()
       .append('rect')
-      .attr('class', 'bar')
+      .attr('fill', '#3B82F6') // Apply the blue-500 color directly
       .attr('x', d => x(d.label) ?? 0)
       .attr('y', d => y(d.value))
       .attr('width', x.bandwidth())
-      .attr('height', d => height - y(d.value));
-    
+      .attr('height', d => height - y(d.value))
+      .attr('rx', 4) // Round the edges on the x-axis
+      .attr('ry', 4); // Round the edges on the y-axis
+
+
   }, []);
 
   return (
-    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8 mt-12">
-      <h2 className="text-4xl font-bold mb-8">Dashboard</h2>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-semibold mb-4 text-white mt-16">Dashboard</h1>
       <svg ref={chartRef} width="960" height="500"></svg>
     </div>
   );
