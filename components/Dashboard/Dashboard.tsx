@@ -60,7 +60,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8 mt-12">
       <h2 className="text-4xl font-bold mb-8">Dashboard</h2>
       <svg ref={chartRef} width="960" height="500"></svg>
     </div>
