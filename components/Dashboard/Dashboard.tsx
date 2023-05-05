@@ -34,7 +34,7 @@ const Dashboard = () => {
   useEffect(() => {
     
     const svg = d3.select(chartRef.current);
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const margin = { top: 20, right: 20, bottom: 30, left: 0 };
     const width = chartSize.width - margin.left - margin.right;
     const height = chartSize.height - margin.top - margin.bottom;
 
@@ -43,7 +43,7 @@ const Dashboard = () => {
 
     const x = d3.scaleBand()
       .rangeRound([padding, width])
-      .padding(0.2)
+      .padding(0.3)
       .domain(data.map(d => d.label));
 
     
