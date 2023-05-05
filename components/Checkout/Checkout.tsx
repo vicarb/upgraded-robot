@@ -99,8 +99,8 @@ const Checkout = () => {
     // rest of the function code
   }
   return(
-    <div className="container mx-auto mt-24">
-    <div className="flex flex-wrap -mx-4">
+    <div className="container mx-auto my-24">
+    <div className="flex flex-wrap mx-4">
       <div className="w-full md:w-1/2 px-4">
         <div className="border rounded-md shadow-md p-4 bg-orange-50">
           <h2 className="font-bold text-lg mb-2">Delivery Information</h2>
@@ -174,7 +174,7 @@ const Checkout = () => {
           </form>
         </div>
       </div>
-      <div className="w-full md:w-1/2 px-8">
+      <div className="w-full md:w-1/2 px-4 mt-12 md:mt-0">
       <div className="border rounded-md shadow-md p-4 bg-orange-50">
         <h2 className="font-bold text-lg mb-2">Order Summary</h2>
         {cartItems.map((item) => (
