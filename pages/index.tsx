@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import ProductList from '@/components/ProductList/ProductList'
 import ImageSection from '@/components/ImageSection/ImageSection'
 import { Product } from '@/types/Product'
-import PList from '@/components/PList'
+
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 const inter = Inter({ subsets: ['latin'] })
 import { useState, useEffect } from 'react'

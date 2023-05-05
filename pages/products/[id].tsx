@@ -14,7 +14,7 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
   const { cartItems, addToCart } = useCart();
   const [isLoaded, setIsLoaded] = useState(false);
   const [mainImage, setMainImage] = useState(product.image);
-  const [thumbnails, setThumbnails] = useState([  "https://via.placeholder.com/150",  "https://via.placeholder.com/150",  "https://via.placeholder.com/150"]);
+  const [thumbnails, setThumbnails] = useState([  "https://via.placeholder.com/250",  "https://via.placeholder.com/152",  "https://via.placeholder.com/153"]);
 
 
   useEffect(() => {
