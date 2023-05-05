@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import axios, {AxiosError} from 'axios';
 import { useCart } from '@/context/CartContext';
 
@@ -99,10 +99,10 @@ const Checkout = () => {
     // rest of the function code
   }
   return(
-    <div className="container mx-auto mt-24 ">
+    <div className="container mx-auto mt-24">
     <div className="flex flex-wrap -mx-4">
-      <div className="w-full md:w-1/2 px-4 ">
-        <div className="border rounded-md shadow-md p-4 bg-orange-50 rounded-md">
+      <div className="w-full md:w-1/2 px-4">
+        <div className="border rounded-md shadow-md p-4 bg-orange-50">
           <h2 className="font-bold text-lg mb-2">Delivery Information</h2>
           <form>
             <div className="mb-4 bg-slate">
@@ -174,14 +174,13 @@ const Checkout = () => {
           </form>
         </div>
       </div>
-      <div className="w-full md:w-1/2 px-8 ">
-        <div className="w-full md:w-1/2 px-8 ">
-      <div className="border rounded-md shadow-md p-4 bg-orange-50 rounded-mdz">
+      <div className="w-full md:w-1/2 px-8">
+      <div className="border rounded-md shadow-md p-4 bg-orange-50">
         <h2 className="font-bold text-lg mb-2">Order Summary</h2>
         {cartItems.map((item) => (
           <div key={item.id} className="flex justify-between border-t pt-2 mt-2">
-            <p className="text-gray-800 font-semibold text-black">{item.name} x {item.quantity} </p>
-            <p className="text-gray-800  font-semibold">${item.price}  </p>            
+            <p className="text-gray-800 font-semibold">{item.name} x {item.quantity}</p>
+            <p className="text-gray-800 font-semibold">${item.price}</p>
           </div>
         ))}
         <div className="flex justify-between border-t pt-2 mt-2">
@@ -192,7 +191,7 @@ const Checkout = () => {
           <p className="text-gray-500 font-bold">Total</p>
           <p className="text-gray-500 font-bold">${calculateTotal(cartItems)}</p>
         </div>
-       
+
         <button
           className="bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 text-white px-4 py-2 rounded-md font-semibold cursor-pointer"
           onClick={handleCheckout}
@@ -201,12 +200,9 @@ const Checkout = () => {
         </button>
       </div>
     </div>
-    
-    
+  </div>
+</div>
 
-</div>
-</div>
-</div>
 
 
   )}

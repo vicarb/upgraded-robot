@@ -1,3 +1,4 @@
+import React from 'react';
 import { useCart } from '@/context/CartContext';
 import Link from 'next/link';
 

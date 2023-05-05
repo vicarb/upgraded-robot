@@ -1,11 +1,16 @@
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
+
 import React, { useState, memo } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
-interface NavbarProps {}
+interface CartPopupProps {
+  onClose: () => void;
+}
 
-export const CartPopup: React.FC<{ onClose: () => void }> = memo(({ onClose }) => {
+export const CartPopup: React.FC<CartPopupProps> = memo(({ onClose }) => {
   console.log("CartPopup is being rendered");
   const { cartItems } = useCart();
   console.log("logss", cartItems);

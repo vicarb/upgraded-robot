@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Product } from '@/types/Product';
@@ -6,7 +6,7 @@ import { useCart } from '@/context/CartContext';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 
-import { CartContext } from '@/context/CartContext';
+
 
 interface Props {
   product: Product;

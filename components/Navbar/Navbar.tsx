@@ -5,9 +5,9 @@ import { useCart } from '@/context/CartContext';
 import { CartPopup } from '../CartPopup/CartPopup';
 
 
-interface NavbarProps {}
 
-const Navbar: React.FC<NavbarProps> = ({}) => {
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = useCart();
   const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
