@@ -86,7 +86,7 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-semibold mb-4 text-white mt-16">Dashboard</h1>
+    <h1 className="text-2xl font-semibold mb-4 text-white mt-16">Dashboard & Metrics</h1>
     <div className="w-full h-full">
       <svg ref={chartRef} preserveAspectRatio="xMinYMin meet" viewBox={`0 0 ${chartSize.width} ${chartSize.height}`}></svg>
     </div>
